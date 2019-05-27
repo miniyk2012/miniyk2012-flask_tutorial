@@ -3,7 +3,7 @@ import sqlite3
 import click
 from flask import current_app, g
 from flask.cli import with_appcontext
-
+import inspect
 
 def get_db():
     """g is a special object that is unique for each request.
@@ -17,6 +17,7 @@ def get_db():
             detect_types=sqlite3.PARSE_DECLTYPES
         )
         g.db.row_factory = sqlite3.Row
+    print('caller name:', inspect.stack()[1][3])
     print('get_db is called')
     return g.db
 
