@@ -27,14 +27,15 @@ def create_app(test_config=None):
 
     # ensure the instance folder exists
     try:
+        print('make instance_path', app.instance_path)
         os.makedirs(app.instance_path)
-    except OSError:
+    except OSError as e:
         pass
 
     # a simple page that says hello
     def hello():
         print(f'current app url map is {current_app.url_map}')
-        return f'current app url map is {current_app.url_map}'
+        return 'Hello, World!'
     app.add_url_rule('/hello', view_func=hello)
 
     from . import db
