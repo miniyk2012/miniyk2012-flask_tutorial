@@ -4,6 +4,7 @@ flask官网教程，我仔细学习并写了很多注释
 本地启动方法：pip install flask
 export FLASK_APP=flaskr
 export FLASK_ENV=development
+flask init-db
 flask run
 
 

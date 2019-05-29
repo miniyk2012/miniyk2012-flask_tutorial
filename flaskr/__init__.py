@@ -17,10 +17,10 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'flaskr.sqlite'),
     )
-
     if test_config is None:
         # load the instance config, if it exists, when not testing
-        app.config.from_pyfile('config.py', silent=True)
+        ret = app.config.from_pyfile('config.py', silent=True)
+        print('load the config.py ' + ('success' if ret else 'fail'))
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
