@@ -7,7 +7,6 @@ export FLASK_ENV=development
 flask init-db
 flask run
 
-
 测试用例运行方法：pip install pytest coverage
 在setup.cfg中指定了测试目录和源代码目录
 运行pytest
@@ -16,3 +15,7 @@ flask run
 1. coverage run -m pytest
 2. coverage report
 3. [optional] coverage html, 覆盖统计会生成在htmlcov目录下
+
+部署到服务器：pip install waitress
+waitress-serve --call 'flaskr:create_app'
+跑在http://0.0.0.0:8080/
