@@ -67,7 +67,8 @@ def login():
     return render_template('auth/login.html')
 
 
-# 只要注册了，不管访问哪个view，都会进来
+# before_app_request: 只要注册了，不管访问哪个view（即使是非auth蓝图的），都会进来
+# before_request: 只有auth蓝图的view才会进来
 @bp.before_app_request
 def load_logged_in_user():
     print('At the beginning of each request, load_logged_in_user is called')
