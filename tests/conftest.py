@@ -40,6 +40,7 @@ def client(app):
 
 @pytest.fixture
 def runner(app):
+    """用来提供命令行的触发功能"""
     return app.test_cli_runner()
 
 
